@@ -17,14 +17,27 @@ var createChoice = [
     }
 ]
 
-inquirer.prompt(choice).then(answers => {
-    let answer = answers.action.toString().toUpperCase();
-    if(answer === "CREATE"){
-     createTodo();
-    } else if(answer === "DELETE"){
-     deleteTodo();
+var deleteChoice = [
+    {
+        type: 'input',
+        name: 'todo',
+        message: 'What Task do you Want to Delete (number/row of item)?'
     }
-});
+]
+
+ask();
+
+function ask(){
+    inquirer.prompt(choice).then(answers => {
+        let answer = answers.action.toString().toUpperCase();
+        if(answer === "CREATE"){
+         createTodo();
+        } else if(answer === "DELETE"){
+         deleteTodo();
+        }
+    });
+}
+
 
 
 function createTodo(){
@@ -32,9 +45,21 @@ function createTodo(){
         let task = answers.todo.toString();
         todos.push(task);
         console.log("Created " + task);
+        ask();
     });
+    
 }
 
 function deleteTodo(){
-    
+    inquirer.prompt(deleteChoice).then(answers => {
+        let taskNumber = parseInt(answers.todo.toString());
+        console.log(taskNumber)
+        for(var i = 0; i < todos.length; i++){
+            if(i === taskNumber){
+                todos.splice(i, 1);
+                console.log("Deleted Item #" + i)
+            }
+        }
+        ask();
+    });
 }
