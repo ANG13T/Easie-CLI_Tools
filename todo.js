@@ -34,6 +34,8 @@ function ask(){
          createTodo();
         } else if(answer === "DELETE"){
          deleteTodo();
+        } else if(answer === "VIEW"){
+         listTodos();
         }
     });
 }
@@ -62,4 +64,11 @@ function deleteTodo(){
         }
         ask();
     });
+}
+
+function listTodos(){
+    for(var i = 0; i < todos.length; i++){
+        console.log((i + 1) + ") " + todos[i])
+    } 
+    ask();
 }
