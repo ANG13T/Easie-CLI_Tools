@@ -25,6 +25,14 @@ var deleteChoice = [
     }
 ]
 
+var clearChoice = [
+    {
+        type: 'input',
+        name: 'confirmation',
+        message: 'Are you sure? (y or n)'
+    }
+]
+
 ask();
 
 function ask(){
@@ -36,6 +44,8 @@ function ask(){
          deleteTodo();
         } else if(answer === "VIEW"){
          listTodos();
+        } else if(answer === "CLEAR"){
+            clearTodos();
         }
     });
 }
@@ -58,10 +68,26 @@ function deleteTodo(){
         console.log(taskNumber)
         for(var i = 0; i < todos.length; i++){
             if(i === taskNumber){
-                todos.splice(i, 1);
+                todos.splice(i - 1, 1);
                 console.log("Deleted Item #" + i)
             }
         }
+        ask();
+    });
+}
+
+function clearTodos(){
+    inquirer.prompt(clearChoice).then(answers => {
+        let confirmAnswer = answers.confirmation.toString().toUpperCase();
+        if(confirmAnswer === "YES" || "Y"){
+            for(var i = 0; i < todos.length; i++){
+                    todos.slice(i,1);
+            }
+            console.log("Cleared Items")
+        } else{
+            console.log("Not Clearing Items")
+        }
+        
         ask();
     });
 }

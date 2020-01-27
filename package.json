@@ -1,7 +1,7 @@
 {
-  "name": "todos",
+  "name": "Easie",
   "version": "1.0.0",
-  "description": "Quick and easy todo app on the command line",
+  "description": "Get time wasting tasks done quickly using the command line",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
