@@ -1,7 +1,5 @@
 const inquirer = require('inquirer');
 
-
-
 var askComand = [
     {
       type: 'input',
@@ -18,6 +16,14 @@ var askComand = [
     }
   ];
 
+  var askString2 = [
+    {
+      type: 'input',
+      name: 'string2',
+      message: 'Enter String:'
+    }
+  ];
+
   var askAmount = [
     {
       type: 'input',
@@ -26,18 +32,40 @@ var askComand = [
     }
   ];
 
+  var askStart = [
+    {
+      type: 'input',
+      name: 'start',
+      message: 'Start Splice:'
+    }
+  ];
+
+  var askEnd = [
+    {
+      type: 'input',
+      name: 'end',
+      message: 'End Splice:'
+    }
+  ];
+
 ask()
 
 function ask(){
     inquirer.prompt(askComand).then(answers => {
-        var command = answers.command.toString().toUpperCase();
+        var command = answers.command.toString().trim().toUpperCase();
 
         if(command === "REPEAT"){
             repeatString()
-        }else if(command === "DELETE"){
-            console.log("dsds") 
+        }else if(command === "REVERSE"){
+            reverseString() 
         }else if(command === "SLICE"){
-            console.log("dsds")
+            spliceString()
+        }else if(command === "LENGTH"){
+            stringLength()
+        }else if(command === "CONCAT"){
+            concatString()
+        }else if(command === "FIND"){
+            findStringIndex()
         }else{
             console.log("Invalid Input")
             ask();
@@ -66,4 +94,72 @@ function repeatString(){
             } 
         })
     });
+}
+
+
+function reverseString(){
+    inquirer.prompt(askString).then(answers => {
+        var revString = answers.string.toString();
+        console.log(revString.split('').reverse().join(''))
+    });
+}
+
+function stringLength(){
+    inquirer.prompt(askString).then(answers => {
+        var lenString = answers.string.toString();
+        console.log(lenString.length)
+    });
+}
+
+function concatString(){ 
+    var firstString = "";
+    var secondString = "";
+    inquirer.prompt(askString).then(answers => {
+        firstString = answers.string.toString();
+        inquirer.prompt(askString2).then(answers2 => {
+            secondString = answers2.string2.toString();
+            console.log(firstString + secondString)
+        });
+    });
+}
+
+
+function findStringIndex(){
+    var findString = "";
+    var indexString = "";
+    inquirer.prompt(askString).then(answers => {
+        findString = answers.string.toString();
+        inquirer.prompt(askString2).then(answers2 => {
+                indexString = answers2.string2.toString();
+                console.log(findString.search(indexString))
+        });
+    });
+}
+
+
+function spliceString(){
+    var splString = "";
+    var startSplice = 0;
+    var endSplice = 0;
+    inquirer.prompt(askString).then(answers => {
+        splString = answers.string.toString();
+        inquirer.prompt(askStart).then(answers => {
+            if(answers.start % 1 == 0){
+                startSplice = answers.start
+                inquirer.prompt(askEnd).then(answers => {
+                    if(answers.end % 1 == 0){
+                        endSplice = answers.end;
+                        console.log(splString.slice(startSplice,endSplice))
+                    }else{
+                        console.log("Invalid Command")
+                        spliceString()
+                    }
+                });
+            } else{
+                console.log("Invalid Command")
+                spliceString()
+            }
+        });
+    });
+
 }
