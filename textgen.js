@@ -66,6 +66,10 @@ function ask(){
             concatString()
         }else if(command === "FIND"){
             findStringIndex()
+        }else if(command === "UPPERCASE"){
+            uppercaseString()
+        }else if(command === "LOWERCASE"){
+            lowercaseString()
         }else{
             console.log("Invalid Input")
             ask();
@@ -87,6 +91,7 @@ function repeatString(){
                 for(var i = 0; i < repAmount; i++){
                     console.log(repString)
                 }
+                ask()
                 
             }else{
                 console.log("Invalid Input")
@@ -101,6 +106,7 @@ function reverseString(){
     inquirer.prompt(askString).then(answers => {
         var revString = answers.string.toString();
         console.log(revString.split('').reverse().join(''))
+        ask()
     });
 }
 
@@ -108,6 +114,7 @@ function stringLength(){
     inquirer.prompt(askString).then(answers => {
         var lenString = answers.string.toString();
         console.log(lenString.length)
+        ask()
     });
 }
 
@@ -119,6 +126,7 @@ function concatString(){
         inquirer.prompt(askString2).then(answers2 => {
             secondString = answers2.string2.toString();
             console.log(firstString + secondString)
+            ask()
         });
     });
 }
@@ -132,6 +140,7 @@ function findStringIndex(){
         inquirer.prompt(askString2).then(answers2 => {
                 indexString = answers2.string2.toString();
                 console.log(findString.search(indexString))
+                ask()
         });
     });
 }
@@ -150,6 +159,7 @@ function spliceString(){
                     if(answers.end % 1 == 0){
                         endSplice = answers.end;
                         console.log(splString.slice(startSplice,endSplice))
+                        ask()
                     }else{
                         console.log("Invalid Command")
                         spliceString()
@@ -162,4 +172,20 @@ function spliceString(){
         });
     });
 
+}
+
+function uppercaseString(){
+   var upperString = ""
+    inquirer.prompt(askString).then(answers => {
+        upperString = answers.string.toString();
+        console.log(upperString.toUpperCase())
+    });
+}
+
+function lowercaseString(){
+    var lowerString = ""
+    inquirer.prompt(askString).then(answers => {
+        lowerString = answers.string.toString();
+        console.log(lowerString.toLowerCase())
+    });
 }
