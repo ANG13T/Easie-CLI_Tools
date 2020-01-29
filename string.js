@@ -49,6 +49,8 @@ var askComand = [
     }
   ];
 
+  console.log("Welcome to Simple String Service")
+  console.log("Type in \"help\" if you need to know the commands")
 ask()
 
 function ask(){
@@ -71,6 +73,8 @@ function ask(){
             uppercaseString()
         }else if(command === "LOWERCASE"){
             lowercaseString()
+        }else if(command === "HELP"){
+            help()
         }else{
             console.log(clc.redBright("Invalid Input"))
             ask();
@@ -188,4 +192,16 @@ function lowercaseString(){
         lowerString = answers.string.toString();
         console.log(clc.greenBright(lowerString.toLowerCase()))
     });
+}
+
+function help(){
+    console.log(clc.yellowBright("-> REPEAT: repeats a string x amount of times"))
+    console.log(clc.yellowBright("-> REVERSE: reverses a string"))
+    console.log(clc.yellowBright("-> SLICE: gets part of a string(slices) from x to y"))
+    console.log(clc.yellowBright("-> LENGTH: gets the length of the string"))
+    console.log(clc.yellowBright("-> CONCAT: append one string to another"))
+    console.log(clc.yellowBright("-> FIND: find specific characters inside the string"))
+    console.log(clc.yellowBright("-> UPPERCASE: makes the string all uppercase"))
+    console.log(clc.yellowBright("-> LOWERCASE: makes the string all lowercase"))
+    ask()
 }

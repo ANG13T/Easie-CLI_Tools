@@ -9,6 +9,8 @@ var askComand = [
     }
   ];
 
+  console.log("Welcome to Easy Date Service")
+  console.log("Type in \"help\" if you need to know the commands")
   ask()
 
 function ask(){
@@ -42,10 +44,24 @@ function ask(){
             const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             console.log(clc.greenBright(weekdays[d.getDay()]))
             ask()
+        }else if(command === "HELP"){
+            help()
         }
         else{
             console.log(clc.redBright("Invalid Input"))
             ask();
         }
     })
+}
+
+function help(){
+    console.log(clc.yellowBright("-> YEAR: finds current year"))
+    console.log(clc.yellowBright("-> MONTH: finds current month"))
+    console.log(clc.yellowBright("-> DATE: finds current day"))
+    console.log(clc.yellowBright("-> HOUR: finds current hour"))
+    console.log(clc.yellowBright("-> MINUTE: finds current minute"))
+    console.log(clc.yellowBright("-> SECOND: finds current second"))
+    console.log(clc.yellowBright("-> MILLISECOND: finds current millisecond"))
+    console.log(clc.yellowBright("-> WEEKDAY: finds current day of the week"))
+    ask()
 }

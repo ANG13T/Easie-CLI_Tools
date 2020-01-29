@@ -26,6 +26,8 @@ var askCommand = [
     }
   ];
 
+  console.log("Welcome to Easy JSON Creator")
+  console.log("Type in \"help\" if you need to know the commands")
   ask()
 
   function ask(){
@@ -38,6 +40,8 @@ var askCommand = [
             viewData()
         }else if(command === "VIEWALL"){
             viewAllData()
+        }else if(command === "HELP"){
+          help()
         }else{
             console.log(clc.redBright("Invalid Command"))
             ask()
@@ -71,3 +75,10 @@ var askCommand = [
   function viewAllData(){
     console.log(clc.greenBright(fullData))
   }
+
+  function help(){
+    console.log(clc.yellowBright("-> ADD: adds a key/value pair"))
+    console.log(clc.yellowBright("-> VIEW: view a specific value of a key"))
+    console.log(clc.yellowBright("-> VIEWALL: view all key/value pairs"))
+    ask()
+}

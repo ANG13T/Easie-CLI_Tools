@@ -34,6 +34,8 @@ var clearChoice = [
     }
 ]
 
+console.log("Welcome to Todo List Creator")
+console.log("Type in \"help\" if you need to know the commands")
 ask();
 
 function ask(){
@@ -47,6 +49,11 @@ function ask(){
          listTodos();
         } else if(answer === "CLEAR"){
             clearTodos();
+        } else if(answer === "HELP"){
+            help()
+        }else{
+            console.log(clc.redBright("Invalid Command"))
+            ask()
         }
     });
 }
@@ -97,4 +104,12 @@ function listTodos(){
         console.log(clc.greenBright((i + 1) + ") " + todos[i]))
     } 
     ask();
+}
+
+function help(){
+    console.log(clc.yellowBright("-> CREATE: creates a todo item"))
+    console.log(clc.yellowBright("-> DELETE: deletes a todo item"))
+    console.log(clc.yellowBright("-> VIEW: view todo list"))
+    console.log(clc.yellowBright("-> CLEAR: clears todo list"))
+    ask()
 }
