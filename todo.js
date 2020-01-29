@@ -6,7 +6,7 @@ var choice = [
     {
       type: 'input',
       name: 'action',
-      message: 'Create, Delete, or View Todos?'
+      message: 'Create, Delete, or View Todos 🛠 🗑 👀 ?'
     }
   ];
 
@@ -30,11 +30,11 @@ var clearChoice = [
     {
         type: 'input',
         name: 'confirmation',
-        message: 'Are you sure? (y or n)'
+        message: 'Are you sure? (y/n)'
     }
 ]
 
-console.log("Welcome to Todo List Creator")
+console.log(clc.magenta("Welcome to Todo List Creator 🛠"))
 console.log("Type in \"help\" if you need to know the commands")
 ask();
 

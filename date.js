@@ -5,11 +5,11 @@ var askComand = [
     {
       type: 'input',
       name: 'command',
-      message: 'Enter Command:'
+      message: 'Enter Command 📟 :'
     }
   ];
 
-  console.log("Welcome to Easy Date Service")
+  console.log("Welcome to Easy Date Service 📅 ")
   console.log("Type in \"help\" if you need to know the commands")
   ask()
 

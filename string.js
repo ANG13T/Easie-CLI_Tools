@@ -5,7 +5,7 @@ var askComand = [
     {
       type: 'input',
       name: 'command',
-      message: 'Enter Command:'
+      message: 'Enter Command 📟 :'
     }
   ];
 
@@ -13,7 +13,7 @@ var askComand = [
     {
       type: 'input',
       name: 'string',
-      message: 'Enter String:'
+      message: 'Enter String 🔡 :'
     }
   ];
 
@@ -21,7 +21,7 @@ var askComand = [
     {
       type: 'input',
       name: 'string2',
-      message: 'Enter String:'
+      message: 'Enter Second String 🔡 :'
     }
   ];
 
@@ -29,7 +29,7 @@ var askComand = [
     {
       type: 'input',
       name: 'amount',
-      message: 'How many times to repeat:'
+      message: 'How many times to repeat 🔁 :'
     }
   ];
 
@@ -49,7 +49,7 @@ var askComand = [
     }
   ];
 
-  console.log("Welcome to Simple String Service")
+  console.log("Welcome to Simple String Service 📄 ")
   console.log("Type in \"help\" if you need to know the commands")
 ask()
 

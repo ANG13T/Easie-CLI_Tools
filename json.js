@@ -6,7 +6,7 @@ var askCommand = [
     {
       type: 'input',
       name: 'command',
-      message: 'Enter Command:'
+      message: 'Enter Command 📟:'
     }
   ];
 
@@ -14,7 +14,7 @@ var askCommand = [
     {
       type: 'input',
       name: 'key',
-      message: 'Enter Key:'
+      message: 'Enter Key 🔑 :'
     }
   ];
 
@@ -22,11 +22,11 @@ var askCommand = [
     {
       type: 'input',
       name: 'value',
-      message: 'Enter Value:'
+      message: 'Enter Value 🔏 :'
     }
   ];
 
-  console.log("Welcome to Easy JSON Creator")
+  console.log(clc.magenta("Welcome to Easy JSON Creator 🛠 "))
   console.log("Type in \"help\" if you need to know the commands")
   ask()
 
