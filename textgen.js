@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const clc = require('cli-color');
 
 var askComand = [
     {
@@ -71,7 +72,7 @@ function ask(){
         }else if(command === "LOWERCASE"){
             lowercaseString()
         }else{
-            console.log("Invalid Input")
+            console.log(clc.redBright("Invalid Input"))
             ask();
         }
     })
@@ -83,18 +84,17 @@ function repeatString(){
 
     inquirer.prompt(askString).then(answers => {
         repString = answers.string.toString();
-        console.log(repString)
         inquirer.prompt(askAmount).then(answers => {
             var amount = answers.amount;
             if(amount % 1 === 0){
                 repAmount = amount;
                 for(var i = 0; i < repAmount; i++){
-                    console.log(repString)
+                    console.log(clc.greenBright(repString))
                 }
                 ask()
                 
             }else{
-                console.log("Invalid Input")
+                console.log(clc.redBright("Invalid Input"))
                 repeatString()
             } 
         })
@@ -105,7 +105,7 @@ function repeatString(){
 function reverseString(){
     inquirer.prompt(askString).then(answers => {
         var revString = answers.string.toString();
-        console.log(revString.split('').reverse().join(''))
+        console.log(clc.greenBright(revString.split('').reverse().join('')))
         ask()
     });
 }
@@ -113,7 +113,7 @@ function reverseString(){
 function stringLength(){
     inquirer.prompt(askString).then(answers => {
         var lenString = answers.string.toString();
-        console.log(lenString.length)
+        console.log(clc.greenBright(lenString.length))
         ask()
     });
 }
@@ -125,7 +125,7 @@ function concatString(){
         firstString = answers.string.toString();
         inquirer.prompt(askString2).then(answers2 => {
             secondString = answers2.string2.toString();
-            console.log(firstString + secondString)
+            console.log(clc.greenBright(firstString + secondString))
             ask()
         });
     });
@@ -139,7 +139,7 @@ function findStringIndex(){
         findString = answers.string.toString();
         inquirer.prompt(askString2).then(answers2 => {
                 indexString = answers2.string2.toString();
-                console.log(findString.search(indexString))
+                console.log(clc.greenBright(findString.search(indexString)))
                 ask()
         });
     });
@@ -158,15 +158,15 @@ function spliceString(){
                 inquirer.prompt(askEnd).then(answers => {
                     if(answers.end % 1 == 0){
                         endSplice = answers.end;
-                        console.log(splString.slice(startSplice,endSplice))
+                        console.log(clc.greenBright(splString.slice(startSplice,endSplice)))
                         ask()
                     }else{
-                        console.log("Invalid Command")
+                        console.log(clc.redBright("Invalid Command"))
                         spliceString()
                     }
                 });
             } else{
-                console.log("Invalid Command")
+                console.log(clc.redBright("Invalid Command"))
                 spliceString()
             }
         });
@@ -178,7 +178,7 @@ function uppercaseString(){
    var upperString = ""
     inquirer.prompt(askString).then(answers => {
         upperString = answers.string.toString();
-        console.log(upperString.toUpperCase())
+        console.log(clc.greenBright(upperString.toUpperCase()))
     });
 }
 
@@ -186,6 +186,6 @@ function lowercaseString(){
     var lowerString = ""
     inquirer.prompt(askString).then(answers => {
         lowerString = answers.string.toString();
-        console.log(lowerString.toLowerCase())
+        console.log(clc.greenBright(lowerString.toLowerCase()))
     });
 }

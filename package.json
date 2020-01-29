@@ -9,6 +9,7 @@
   "author": "Angelina Tsuboi",
   "license": "ISC",
   "dependencies": {
+    "cli-color": "^2.0.0",
     "inquirer": "^7.0.3"
   }
 }

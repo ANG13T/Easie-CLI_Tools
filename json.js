@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const clc = require('cli-color');
 var fullData = {}
 
 var askCommand = [
@@ -38,7 +39,7 @@ var askCommand = [
         }else if(command === "VIEWALL"){
             viewAllData()
         }else{
-            console.log("Invalid Command")
+            console.log(clc.redBright("Invalid Command"))
             ask()
         }
     });
@@ -62,11 +63,11 @@ var askCommand = [
     var key = ""
     inquirer.prompt(askKey).then(answers => {
         key = answers.key.toString();
-        console.log(fullData[key])
+        console.log(clc.greenBright(fullData[key]))
         ask()
     });
   }
 
   function viewAllData(){
-    console.log(fullData)
+    console.log(clc.greenBright(fullData))
   }

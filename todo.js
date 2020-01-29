@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const clc = require('cli-color');
 var todos = [];
 
 var choice = [
@@ -56,7 +57,7 @@ function createTodo(){
     inquirer.prompt(createChoice).then(answers => {
         let task = answers.todo.toString();
         todos.push(task);
-        console.log("Created " + task);
+        console.log(clc.greenBright("Created " + task));
         ask();
     });
     
@@ -65,11 +66,10 @@ function createTodo(){
 function deleteTodo(){
     inquirer.prompt(deleteChoice).then(answers => {
         let taskNumber = parseInt(answers.todo.toString());
-        console.log(taskNumber)
         for(var i = 0; i < todos.length; i++){
             if(i === taskNumber){
                 todos.splice(i - 1, 1);
-                console.log("Deleted Item #" + i)
+                console.log(clc.greenBright("Deleted Item #" + i))
             }
         }
         ask();
@@ -83,9 +83,9 @@ function clearTodos(){
             for(var i = 0; i < todos.length; i++){
                     todos.slice(i,1);
             }
-            console.log("Cleared Items")
+            console.log(clc.greenBright("Cleared Items"))
         } else{
-            console.log("Not Clearing Items")
+            console.log(clc.redBright("Not Clearing Items"))
         }
         
         ask();
@@ -94,7 +94,7 @@ function clearTodos(){
 
 function listTodos(){
     for(var i = 0; i < todos.length; i++){
-        console.log((i + 1) + ") " + todos[i])
+        console.log(clc.greenBright((i + 1) + ") " + todos[i]))
     } 
     ask();
 }
