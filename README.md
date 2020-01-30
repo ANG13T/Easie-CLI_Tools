@@ -1,5 +1,5 @@
 # Easie CLI Tools
-Get petty tasks done quickly using the command line
+Get petty, time-wasting tasks easie using the command line
 
 ## Installation
 ```bash

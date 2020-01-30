@@ -1,8 +1,8 @@
 {
   "name": "easie-cli-tools",
-  "version": "1.0.1",
-  "description": "Get petty tasks done quickly using the command line",
-  "main": "index.js",
+  "version": "1.0.2",
+  "description": "Make petty, time-wasting tasks easie using the command line",
+  "main": "todo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,5 +11,18 @@
   "dependencies": {
     "cli-color": "^2.0.0",
     "inquirer": "^7.0.3"
-  }
+  },
+  "homepage": "https://github.com/angelina-tsuboi/Easie-CLI_Tools#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelina-tsuboi/Easie-CLI_Tools.git"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "keywords": [
+    "productivity",
+    "tasks",
+    "easy"
+  ]
 }
