@@ -1,13 +1,13 @@
 {
-  "name": "Easie",
-  "version": "1.0.0",
-  "description": "Get time wasting tasks done quickly using the command line",
+  "name": "easie-cli-tools",
+  "version": "1.0.1",
+  "description": "Get petty tasks done quickly using the command line",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Angelina Tsuboi",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cli-color": "^2.0.0",
     "inquirer": "^7.0.3"
